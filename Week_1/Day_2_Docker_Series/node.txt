@@ -1,0 +1,1 @@
+This is test copy from local to docker host ubuntu
