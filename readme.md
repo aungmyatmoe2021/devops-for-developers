@@ -1,6 +1,49 @@
-# DevOps Series for developer if you want to go level up from junior to senior level whether you want to become devops.
+# First Workflow (GitHub Actions Fundamentals Lab)
 
-## There is the major contents
+This lab matches the workflow examples used in the slide deck.
 
-    - docker
-    - ci/cd
+## What You Will Learn
+
+- GitHub Actions workflow basics
+- Events and triggers
+- Jobs and steps
+- GitHub hosted runners
+- Workflow execution
+
+## Folder Structure
+
+.github/ └── workflows/ └── first-workflow.yml
+
+## Lab Steps
+
+1. Create a new GitHub repository
+2. Upload this project
+3. Push to the main branch
+4. Open the Actions tab in GitHub
+5. Verify the workflow runs successfully
+
+## Expected Result
+
+The workflow should print:
+
+Hello GitHub Actions
+
+## Workflow Explanation
+
+- name
+  - Defines the workflow name.
+
+- on
+  - Defines the trigger event.
+
+- jobs
+  - Contains the jobs to execute.
+
+- runs-on
+  - Defines the GitHub-hosted runner.
+
+- steps
+  - Defines the list of tasks.
+
+- run
+  - Executes a shell command.
