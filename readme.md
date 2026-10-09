@@ -1,47 +1,18 @@
-# Docker Compose App With Database
+# Installion, build image and run image
 
-## Features
+## useful tools.
 
-    • Backend connects to MySQL using service name mysql.
-    • Backend connects to Redis using service name redis.
-    • MySQL data is persisted using named volume mysql_data.
-    • Initial database table is created from db/init/01-init.sql.
+    - Local
+        - docker build -t docker_multi_stage:1.0.0 .
+        - docker run --name multi_stage -d -p 8080:3000 docker_multi_stage:1.0.0
 
-### According to this exercise, there is a few step to create it
+    - Docker Hub
+        - docker tag docker_multi_stage:1.0.0 aungmyatmoe/docker_multi_stage:1.0.0
+        - docker push aungmyatmoe/docker_multi_stage:1.0.0
 
-    - Backend
-        - app.py (To run flask api)
-        - Dockerfile (To create image)
-        - requirements.txt (collect package)
+    - Troubleshooting
+        - docker exec -it multi_stage sh
 
-    - db
-        - init.sql (To megrate db)
+## run image with restriced cpu and memory
 
-    - .env (environment file)
-    - Docker-compose.yml (To combine once click run)
-
-### There is a few step to make sure for run it.
-
-    - docker compose up -d --build
-
-### Useful Commands
-
-    - docker compose ps
-    - docker compose logs -f backend
-    - docker compose exec mysql mysql -uappuser -papppassword compose_demo
-    - docker compose exec redis redis-cli
-    - docker compose down
-    - docker compose down -v
-
-### Testing Tasks
-
-    - http://localhost:5001
-    - http://localhost:5001/health
-    - http://localhost:5001/visits
-
-### Knowlege and Note
-
-    • Backend connects to MySQL using service name mysql.
-    • Backend connects to Redis using service name redis.
-    • MySQL data is persisted using named volume mysql_data.
-    • Initial database table is created from db/init/01-init.sql.
+docker run -d --name myapp --restart unless-stopped --memory="512m" --memory-swap="1g" --cpus="1.0" --pids-limit=100 -p 3000:3000 docker_multi_stage:1.0.0
