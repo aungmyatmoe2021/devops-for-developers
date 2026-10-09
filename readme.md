@@ -11,51 +11,37 @@ Master advanced triggers and workflows to build real-world CI/CD Pipelines
 - Schedule workflows
 - Production Ready Trigger Strategy
 
-## Manual Trigger (workflow_dispatch)
+## Relase Trigger (Github release)
 
-Use workfow_dispatch to manually build and push a Docker Image for a selected service from your project
+Trigger workflows when a version tag is pushed or a GitHub Release is published.
 
-### What is it? How the process?
+### Use Cases
 
-- Manually triggered from GitHub UI
-- Select servie: backend, frontend, or payment
-- Build Docker image for the selectd service
-- Push image to Docker Hub
-- Image tag = short commit SHA
+- Production Release
+  - Deploy Stable, tested code to prodution
 
-## Folder Structure
+- Versioned Deployments
+  - Each release is tied to a specific version
 
-.github/ └── workflows/ └── workflow_dispatch.yml
+- Enterprise Release Strategy
+  - Follow a structured, approved releae process for reliability and compliance
 
-apps/ └── backend/ └── Dockerfile
+## Git Commands
 
-apps/ └── backend/ └── app.py
-
-apps/ └── frontend/ └── Dockerfile
-
-apps/ └── frontend/ └── index.html
-
-apps/ └── integration/ └── Dockerfile
-
-apps/ └── integration/ └── app.py
-
-app.py
-package.json
-requirements.txt
+- git tag -a v1.0.0 -m "Release v1.0.0"
+- git push origin v1.0.0
+- git release create v1.0.0 --title "v1.0.0" --notes "Release nots here"
 
 ## Lab Steps
 
 1. Create a new GitHub repository
 2. Upload this project
 3. Push to the main branch
-4. Open the Actions tab in GitHub
-5. Verify the workflow runs successfully
-
-## Expected Result
-
-The workflow should print:
-
-Hello GitHub Actions
+4. tag to the branch
+5. Push to the main branch
+6. release to the branch
+7. Open the Actions tab in GitHub
+8. Verify the workflow runs successfully
 
 ## Workflow Explanation
 
