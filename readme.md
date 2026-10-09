@@ -11,39 +11,36 @@ Master advanced triggers and workflows to build real-world CI/CD Pipelines
 - Schedule workflows
 - Production Ready Trigger Strategy
 
-## Relase Trigger (Github release)
+## Artifacts (Artifacts)
 
-Trigger workflows when a version tag is pushed or a GitHub Release is published.
+- Purpose
+  - Store workflow outputs
 
-### Use Cases
+- Used For
+  - Build files, reports, binaries
 
-- Production Release
-  - Deploy Stable, tested code to prodution
+- Lifetime
+  - Download later manually
 
-- Versioned Deployments
-  - Each release is tied to a specific version
+- Shared Between Jobs (In Same Workflow)
+  - Yes
+- Shared Between Workflow Runs
+  - Manual download
 
-- Enterprise Release Strategy
-  - Follow a structured, approved releae process for reliability and compliance
+- Example
+  - dist/, test-report.xml, build.tar.gz
 
-## Git Commands
+- upload / Save Action
+  - actions/upload-artifact
 
-- git tag -a v1.0.0 -m "Release v1.0.0"
-- git push origin v1.0.0
-- git release create v1.0.0 --title "v1.0.0" --notes "Release nots here"
+- Main Goal
+  - Preserve outputs
 
-## Lab Steps
+### How They Work In a WORKFLOW
 
-1. Create a new GitHub repository
-2. Upload this project
-3. Push to the main branch
-4. tag to the branch
-5. Push to the main branch
-6. release to the branch
-7. Open the Actions tab in GitHub
-8. Verify the workflow runs successfully
+Checkout Code --> Install Dependencies --> Build & Test --> Upload Artifacts --> Workflow Complete
 
-## Workflow Explanation
+## Explanation
 
 - name
   - Defines the workflow name.
