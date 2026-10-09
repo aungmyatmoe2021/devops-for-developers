@@ -1,1 +1,0 @@
-print("Integration App - GitHub Advanced Actions")
